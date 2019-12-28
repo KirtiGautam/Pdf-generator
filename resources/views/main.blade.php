@@ -15,9 +15,9 @@
         </div>
         <div class="row">
             <div class="btn-group col-lg-12" role="group">
-                <button type="button" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-dark">Register</button>
-                <button type="button" class="btn btn-primary">Form</button>
+                <a href="{{ route('login') }}" type="button" class="btn btn-primary">Login</a>
+                <a href="{{ route('register') }}" type="button" class="btn btn-dark">Register</a>
+                <a href="{{ route('form') }}" type="button" class="btn btn-primary">Form</a>
             </div>
         </div>
     </div>

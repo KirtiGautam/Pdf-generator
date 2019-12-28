@@ -11,21 +11,15 @@
 |
 */
 
-Route::get('/', ['as'=>'','uses'=>'PdfDemoController@index'],function () {
-    return view('welcome');
-});
+Route::get('/form', ['as'=>'form','uses'=>'PdfDemoController@index']);
 
 
 Route::get('/sample-pdf', ['as'=>'SamplePDF','uses'=>'PdfDemoController@samplePDF']);
 
-Route::get('/main', function () {
+Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', ['as'=>'login','uses'=>'loginController@index']);
 
-Route::get('/form', function () {
-    return view('form');
-});
+Route::get('/register', ['as'=>'register','uses'=>'registerController@index']);

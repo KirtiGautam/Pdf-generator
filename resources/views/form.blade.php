@@ -27,15 +27,15 @@
 <body>
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>Fill the form properly</h1>
+            <h1>Training Form</h1>
         </div>
-        <form action="" method="post">
+        <form method="get" action="{{ route('SamplePDF') }}" enctype="multipart/form-data">
             <div class="input-group">
                 <div class="form-group m p col-5">
-                    <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Enter Full Name" required>
+                    <input type="text" class="form-control" name="name" id="fullName" placeholder="Enter Full Name" required>
                 </div>
                 <div class="form-group m p col-5">
-                    <input type="number" class="form-control" name="urn" id="urn" placeholder="Enter University Roll Number" min="1" required>
+                    <input type="number" class="form-control" name="roll" id="urn" placeholder="Enter University Roll Number" min="1" required>
                 </div>
             </div>
             <div class="input-group">
@@ -43,13 +43,12 @@
                     <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email ID" required>
                 </div>
                 <div class="form-group m p col-5">
-                    <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="Enter Mobile Number" required>
+                    <input type="tel" class="form-control" name="tel" id="mobile" placeholder="Enter Mobile Number" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="branch" class="col-5 m p">Select Branch:</label>
-                <select name="branch" id="branch" class="col-5 m p">
-                    <option value="Applied Science">Applied Science</option>
+                <select name="branch" id="branch" class="col-5 m p" required>
                     <option value="Civil Engineering">Civil Engineering</option>
                     <option value="Electrical Engineering">Electrical Engineering</option>
                     <option value="Mechanical Engineering">Mechanical Engineering</option>
@@ -61,8 +60,11 @@
             </div>
             <div class="form-group input-group">
                 <label for="company" class="col-5 m p">Selecy Company:</label>
-                <select name="company" id="comapny" class="col-5 m p">
-                    <option value="Company1">Company 1</option>
+                <select name="company" id="comapny" class="col-5 m p" required>
+                    <option value="" disabled selected>Select Company </option>
+					@foreach($company as $com)
+					<option value="{{ $com->company_name }}">{{ $com->company_name }}</option>
+					@endforeach
                 </select>
             </div>
             <center>

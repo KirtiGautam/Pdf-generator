@@ -14,7 +14,7 @@ class PdfDemoController extends Controller
     public function index()
     {
         $company = DB::table('companies')->select('company_name')->get();
-        return view('welcome')->with('company', $company);
+        return view('form')->with('company', $company);
     }
 
     public function samplePDF(Request $request)
@@ -45,7 +45,6 @@ class PdfDemoController extends Controller
         PDF::SetXY(15, 70);
         PDF::Write(4.5, 'To');
 
-        ////To-do :Company Name form DB, details from db
         PDF::SetXY(15, 75);
         PDF::Write(4.5, $request->input('company'));
 
