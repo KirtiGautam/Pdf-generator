@@ -14,7 +14,7 @@ class CreateRegisterTable extends Migration
     public function up()
     {
         Schema::create('registered_students', function (Blueprint $table) {
-            $table->increments('urn')->primary();
+            $table->integer('urn')->primary();
             $table->string('name', 50);
             $table->string('email', 50);
             $table->text('branch');
