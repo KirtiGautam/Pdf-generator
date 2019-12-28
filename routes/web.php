@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as'=>'','uses'=>'PdfDemoController@index'],function () {
     return view('welcome');
 });
 

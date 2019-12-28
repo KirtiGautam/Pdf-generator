@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests;
 
@@ -12,10 +13,11 @@ class PdfDemoController extends Controller
 {
     public function index()
     {
-        return view('PdfDemo');
+        $company = DB::table('companies')->select('company_name')->get();
+        return view('welcome')->with('company', $company);
     }
 
-    public function samplePDF()
+    public function samplePDF(Request $request)
     {
 
         //Add page
@@ -45,7 +47,7 @@ class PdfDemoController extends Controller
 
         ////To-do :Company Name form DB, details from db
         PDF::SetXY(15, 75);
-        PDF::Write(4.5, 'Company Name');
+        PDF::Write(4.5, $request->input('company'));
 
         PDF::SetXY(15, 85);
         PDF::SetFont('Times', 'B', 10.6);
@@ -79,7 +81,7 @@ class PdfDemoController extends Controller
        PDF::SetFont('Times', 'B', 11);
 
 
-        PDF::Write(4.5, "We recommend our graduating student Mr./Ms. Kirti Gautam, Roll no. 1706232 of B.Tech (Branch) CSE, Email Id gautamkirti8c@gmail.com, Phone no. 883786232 to undergo Industrial training in your esteemed organization starting from March 2020 .\n");
+        PDF::Write(4.5, "We recommend our graduating student Mr./Ms. ".$request->input('name').", Roll no. ".$request->input('roll')." of B.Tech (Branch) ".$request->input('branch').", Email Id ".$request->input('email').", Phone no. ".$request->input('tel')." to undergo Industrial training in your esteemed organization starting from March 2020 .\n");
         PDF::SetFont('Times', '', 9);
         PDF::Write(4, "(* Exact date of joining may be intimated at a later stage. An early and favourable response will be highly appreciated.)");
 
@@ -90,44 +92,4 @@ class PdfDemoController extends Controller
         PDF::Output('SamplePDF.pdf');
     }
 
-
-    public function savePDF()
-    {
-        $html_content = '<h1>Generate a PDF using TCPDF in laravel </h1>
-        		<h4>by<br/>Learn Infinity</h4>';
-
-
-        PDF::SetTitle('Sample PDF');
-        PDF::AddPage();
-        PDF::writeHTML($html_content, true, false, true, false, '');
-
-        PDF::Output(public_path(uniqid() . '_SamplePDF.pdf'), 'F');
-    }
-
-    public function downloadPDF()
-    {
-        $html_content = '<h1>Generate a PDF using TCPDF in laravel </h1>
-        		<h4>by<br/>Learn Infinity</h4>';
-
-
-        PDF::SetTitle('Sample PDF');
-        PDF::AddPage();
-        PDF::writeHTML($html_content, true, false, true, false, '');
-
-        PDF::Output(uniqid() . '_SamplePDF.pdf', 'D');
-    }
-
-
-    public function HtmlToPDF()
-    {
-        $view = \View::make('HtmlToPDF');
-        $html_content = $view->render();
-
-
-        PDF::SetTitle('Sample PDF');
-        PDF::AddPage();
-        PDF::writeHTML($html_content, true, false, true, false, '');
-
-        PDF::Output(uniqid() . '_SamplePDF.pdf');
-    }
 }
