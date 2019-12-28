@@ -17,3 +17,15 @@ Route::get('/', ['as'=>'','uses'=>'PdfDemoController@index'],function () {
 
 
 Route::get('/sample-pdf', ['as'=>'SamplePDF','uses'=>'PdfDemoController@samplePDF']);
+
+Route::get('/main', function () {
+    return view('main');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/form', function () {
+    return view('form');
+});
