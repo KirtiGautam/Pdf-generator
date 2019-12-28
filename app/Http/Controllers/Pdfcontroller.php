@@ -14,11 +14,26 @@ class PdfDemoController extends Controller
     public function index()
     {
         $company = DB::table('companies')->select('company_name')->get();
-        return view('form')->with('company', $company);
+        $urns = DB::table('registered_students')->select('urn')->get();
+        $resp = array('company' => $company, 'urns' => $urns);
+        return view('form')->with('resp', $resp);
     }
 
     public function samplePDF(Request $request)
     {
+        if ($request->has('modbtn')) {
+            DB::update('update registered_students set name = ?, email = ?, branch = ?, phone = ?, company_name = ? where urn = ?', [
+                $request->input('name'), $request->input('email'),
+                $request->input('branch'), $request->input('tel'), $request->input('company'),
+                $request->input('roll')
+            ]);
+        } else {
+            DB::insert('insert into registered_students values( ?, ?, ?, ?, ?, ? )', [
+                $request->input('roll'),
+                $request->input('name'), $request->input('email'),
+                $request->input('branch'), $request->input('tel'), $request->input('company')
+            ]);
+        }
 
         //Add page
         PDF::SetTitle('Sample PDF');
@@ -30,7 +45,7 @@ class PdfDemoController extends Controller
         PDF::Image("images\watermark.png", 17.5, 50, $width - 35, $height - 90);
         PDF::Image('images\header.png', 17.5, 10, $width - 35);
         PDF::Image('images\footer.png', 12.5, $height - 40, $width - 25);
-        PDF::SetMargins(15,0,13);
+        PDF::SetMargins(15, 0, 13);
         //Add Border
         PDF::Rect(10, 10, $width - 20, $height - 20);
 
@@ -67,7 +82,7 @@ class PdfDemoController extends Controller
         PDF::SetFont('Times', '', 11);
 
 
-        $html="
+        $html = "
             <ul>
                 <li>To get familiar with the setup and working of the organisation. </li>
                 <li> Preparation and submission of synopsis.Working on the given project- provided by the company.</li>
@@ -77,10 +92,10 @@ class PdfDemoController extends Controller
 
         PDF::writeHTML($html, true, false, true, false, '');
 
-       PDF::SetFont('Times', 'B', 11);
+        PDF::SetFont('Times', 'B', 11);
 
 
-        PDF::Write(4.5, "We recommend our graduating student Mr./Ms. ".$request->input('name').", Roll no. ".$request->input('roll')." of B.Tech (Branch) ".$request->input('branch').", Email Id ".$request->input('email').", Phone no. ".$request->input('tel')." to undergo Industrial training in your esteemed organization starting from March 2020 .\n");
+        PDF::Write(4.5, "We recommend our graduating student Mr./Ms. " . $request->input('name') . ", Roll no. " . $request->input('roll') . " of B.Tech (Branch) " . $request->input('branch') . ", Email Id " . $request->input('email') . ", Phone no. " . $request->input('tel') . " to undergo Industrial training in your esteemed organization starting from March 2020 .\n");
         PDF::SetFont('Times', '', 9);
         PDF::Write(4, "(* Exact date of joining may be intimated at a later stage. An early and favourable response will be highly appreciated.)");
 
@@ -90,5 +105,4 @@ class PdfDemoController extends Controller
 
         PDF::Output('SamplePDF.pdf');
     }
-
 }

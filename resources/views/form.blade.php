@@ -30,6 +30,7 @@
             <h1>Training Form</h1>
         </div>
         <form method="post" action="{{ route('training-form') }}" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="input-group">
                 <div class="form-group m p col-5">
                     <input type="text" class="form-control" name="name" id="fullName" placeholder="Enter Full Name" required>
@@ -62,19 +63,49 @@
                 <label for="company" class="col-5 m p">Selecy Company:</label>
                 <select name="company" id="comapny" class="col-5 m p" required>
                     <option value="" disabled selected>Select Company </option>
-					@foreach($company as $com)
-					<option value="{{ $com->company_name }}">{{ $com->company_name }}</option>
-					@endforeach
+                    @foreach($resp['company'] as $com)
+                    <option value="{{ $com->company_name }}">{{ $com->company_name }}</option>
+                    @endforeach
                 </select>
             </div>
             <center>
-                <div class="form-group m p">
-                    {{ csrf_field() }}
-                    <input type="submit" value="Submit" class="btn btn-primary">
+                <div class="form-group m p" id='subtn'>
+                    <input type="submit" value="Submit" class="btn btn-primary" name="subtn">
+                </div>
+                <div class="form-group m p" id='modbtn'>
+                    <input type="submit" value="Modify" class="btn btn-primary" name="modbtn">
                 </div>
             </center>
         </form>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    var pausecontent = new Array();
+    @foreach($resp['urns'] as $urn)
+    pausecontent.push('{{ $urn->urn }}');
+    @endforeach
+    $('#modbtn').hide();
+    //setup before functions
+    let typingTimer; //timer identifier
+    let doneTypingInterval = 5000; //time in ms (5 seconds)
+    let myInput = document.getElementById('urn');
+
+    //on keyup, start the countdown
+    myInput.addEventListener('keyup', () => {
+        clearTimeout(typingTimer);
+        if (myInput.value) {
+            typingTimer = setTimeout(doneTyping, doneTypingInterval);
+        }
+    });
+
+    //user is "finished typing," do something
+    function doneTyping() {
+        if(pausecontent.indexOf(document.getElementById('urn').value)!=-1){
+            $("#modbtn").show();
+            $("#subtn").hide();
+        }
+    }
+</script>
 
 </html>

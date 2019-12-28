@@ -30,5 +30,9 @@ class DatabaseSeeder extends Seeder
         DB::table('companies')->insert([
             'company_name' => "Accenture"
         ]);
+        DB::table('users')->insert([
+            'username' => 'gautamkirti8c@gmail.com',
+            'Pass' => password_hash('kirti', PASSWORD_BCRYPT)
+        ]);
     }
 }
