@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('companies')->insert([
+            'company_name' => "Apple"
+        ]);
+        DB::table('companies')->insert([
+            'company_name' => "Microsoft"
+        ]);
+        DB::table('companies')->insert([
+            'company_name' => "Google"
+        ]);
+        DB::table('companies')->insert([
+            'company_name' => "Samsung"
+        ]);
+        DB::table('companies')->insert([
+            'company_name' => "TCS"
+        ]);
+        DB::table('companies')->insert([
+            'company_name' => "Accenture"
+        ]);
     }
 }
