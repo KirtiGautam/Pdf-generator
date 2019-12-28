@@ -14,7 +14,7 @@
 Route::get('/form', ['as'=>'form','uses'=>'PdfDemoController@index']);
 
 
-Route::get('/sample-pdf', ['as'=>'SamplePDF','uses'=>'PdfDemoController@samplePDF']);
+Route::post('/Training form', ['as'=>'training-form','uses'=>'PdfDemoController@samplePDF']);
 
 Route::get('/', function () {
     return view('main');
@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::get('/login', ['as'=>'login','uses'=>'loginController@index']);
 
 Route::get('/register', ['as'=>'register','uses'=>'registerController@index']);
+
+Route::post('/submit',["as"=>'auth', 'uses'=> 'loginController@auth'] );

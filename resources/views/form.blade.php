@@ -29,7 +29,7 @@
         <div class="jumbotron text-center">
             <h1>Training Form</h1>
         </div>
-        <form method="get" action="{{ route('SamplePDF') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('training-form') }}" enctype="multipart/form-data">
             <div class="input-group">
                 <div class="form-group m p col-5">
                     <input type="text" class="form-control" name="name" id="fullName" placeholder="Enter Full Name" required>
@@ -69,6 +69,7 @@
             </div>
             <center>
                 <div class="form-group m p">
+                    {{ csrf_field() }}
                     <input type="submit" value="Submit" class="btn btn-primary">
                 </div>
             </center>

@@ -22,14 +22,16 @@
         </div>
         <div class="row">
             <div class="btn-group col-lg-12 m" role="group">
-                <button type="button" class="btn btn-primary">Register</button>
-                <button type="button" class="btn btn-dark">Form</button>
+                <a href="{{ route('register') }}" type="button" class="btn btn-primary">Register</a>
+                <a href="{{ route('form') }}" type="button" class="btn btn-dark">Form</a>
             </div>
         </div>
-        <form action="" class="m">
+        <form action="{{  route('auth')  }}" method="POST" class="m" enctype="multipart/form-data">
             <div class="form-group m p col-12">
                 <i class="material-icons">email</i><input type="email" name="email" id="email" placeholder="Email" class="flow-control">
                 <i class="material-icons">lock</i><input type="password" name="pass" id="pass" placeholder="Password" class="flow-control">
+                {{ csrf_field() }}
+                <input type="submit" value="Submit">
             </div>
         </form>
     </div>
