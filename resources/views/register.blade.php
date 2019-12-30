@@ -48,7 +48,7 @@
         }
 
         .form-control:focus {
-            border-radius: 25px;
+            border-radius: 50px;
             transition: 3s;
             background: transparent;
             color: chocolate;
