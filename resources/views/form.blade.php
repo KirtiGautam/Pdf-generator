@@ -61,6 +61,7 @@
                     <input type="tel" class="form-control" name="tel" id="mobile" placeholder="Enter Mobile Number" required>
                 </div>
             </div>
+
             <div class="form-group input-group col-lg-12 col-sm-12 col-md-12 col-xs-12 p">
                 <label for="branch" class="col-lg-6 ">Select Branch:</label>
                 <select name="branch" id="branch" class="form-control" required>
@@ -113,11 +114,14 @@
         }
     });
 
-    //user is "finished typing," do something
+    //user is "finished typing," check if value exist
     function doneTyping() {
         if(pausecontent.indexOf(document.getElementById('urn').value)!=-1){
             $("#modbtn").show();
             $("#subtn").hide();
+        }else{
+            $("#subtn").show();
+            $("#modbtn").hide();
         }
     }
 </script>
