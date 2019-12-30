@@ -32,7 +32,7 @@
             border-radius: 25px;
         }
 
-        form {
+        .form {
             background-color: lightgray;
         }
     </style>
@@ -43,7 +43,7 @@
         <div class="jumbotron text-center">
             <h1>Training Form</h1>
         </div>
-        <form method="post" action="{{ route('training-form') }}" enctype="multipart/form-data">
+        <form method="post" class="form" action="{{ route('training-form') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="input-group col-lg-12 col-sm-12 col-md-12 col-xs-12 p">
                 <div class="form-group col-lg-6">
@@ -61,7 +61,8 @@
                     <input type="tel" class="form-control" name="tel" id="mobile" placeholder="Enter Mobile Number" required>
                 </div>
             </div>
-            <div class="form-group">
+
+            <div class="form-group input-group col-lg-12 col-sm-12 col-md-12 col-xs-12 p">
                 <label for="branch" class="col-lg-6 ">Select Branch:</label>
                 <select name="branch" id="branch" class="form-control" required>
                     <option value="Civil Engineering">Civil Engineering</option>
