@@ -17,6 +17,8 @@ class CreateUserTable extends Migration
             $table->increments('id');
             $table->string('username');
             $table->text('Pass');
+            $table->string('name');
+            $table->string('role');
         });
     }
 

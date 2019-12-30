@@ -31,8 +31,10 @@ class DatabaseSeeder extends Seeder
             'company_name' => "Accenture"
         ]);
         DB::table('users')->insert([
-            'username' => 'gautamkirti8c@gmail.com',
-            'Pass' => password_hash('kirti', PASSWORD_BCRYPT)
+            'username' => 'admin@admin.com',
+            'Pass' => password_hash('mehnat', PASSWORD_BCRYPT),
+            'name' => 'Dark Knight',
+            'role' => 'admin'
         ]);
     }
 }
