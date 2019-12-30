@@ -16,6 +16,10 @@
             font-size: 50px;
         }
 
+        .row{
+            background: unset;
+        }
+
         .jumbotron {
             background: #232526;
             /* fallback for old browsers */
@@ -30,11 +34,12 @@
         .form-control,
         .btn {
             font-size: 20px;
-            margin-top: 4%;
-            margin-bottom: 4%;
+            margin-top: 2%;
+            margin-bottom: 2%;
             border-radius: 10%;
             background: transparent;
             font-size: 30px;
+            color: #C0C0C0;
         }
 
         .btn {
@@ -51,7 +56,7 @@
             border-radius: 50px;
             transition: 3s;
             background: transparent;
-            color: chocolate;
+            color: #DCDCDC;
         }
 
         .form {
@@ -70,6 +75,12 @@
     <div class="container">
         <div class="jumbotron text-center">
             <h1>Registration Form</h1>
+        </div>
+        <div class="row">
+            <div class="btn-group col-12 m p" role="group">
+                <a href="{{ route('login') }}" type="button" class="btn btn-primary">Login</a>
+                <a href="{{ route('form') }}" type="button" class="btn btn-dark">Form</a>
+            </div>
         </div>
         @if($flag)
         <div class="alert alert-success" id="success-alert">

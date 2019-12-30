@@ -43,6 +43,12 @@
         <div class="jumbotron text-center">
             <h1>Training Form</h1>
         </div>
+        <div class="row">
+            <div class="btn-group col-lg-12" role="group">
+                <a href="{{ route('login') }}" type="button" class="btn btn-primary">Login</a>
+                <a href="{{ route('register') }}" type="button" class="btn btn-dark">Register</a>
+            </div>
+        </div>
         <form method="post" class="form" action="{{ route('training-form') }}" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="input-group col-lg-12 col-sm-12 col-md-12 col-xs-12 p">
