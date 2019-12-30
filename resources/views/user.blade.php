@@ -22,7 +22,8 @@
         }
 
         h1 {
-            font-size: 5vmin;
+            font-size: 35px;
+            color: #DCDCDC;
         }
 
         .sidebar {
@@ -30,20 +31,38 @@
             width: 200px;
             position: fixed;
             z-index: 1;
-            background-color: #111;
+            background-color: #000000;
+            background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
             overflow-x: hidden;
-            font-size: 2vmin;
+            font-size: 15px;
         }
 
-        .sidebar-nav button {
-            font-size: 2vmin;
-            color: #818181;
+        button {
+            background: transparent;
+            border: none;
+            color: #DCDCDC;
         }
 
         .main {
             margin-left: 210px;
             margin-right: 10px;
         }
+
+        table {
+            background-color: #5b6467;
+            background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
+        }
+
+        button:hover{
+            font-size:17px;
+        }
+
+        button:focus{
+            color:burlywood;
+            font-size:17px;
+            outline: none;
+        }
+
     </style>
 </head>
 
@@ -65,7 +84,7 @@
                 <div class="table-responsive">
                     <h3 align="center">Users:</h3>
                     <table class="table table-striped table-bordered">
-                        <thead>
+                        <thead class="thead-dark">
                             <tr>
                                 <th>Name</th>
                                 <th>Role</th>
@@ -86,7 +105,7 @@
             <div id="stu" class="table-responsive">
                 <h3 align="center">Registered Students:</h3>
                 <table class="table table-striped table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr>
                             <th>URN</th>
                             <th>Name</th>
