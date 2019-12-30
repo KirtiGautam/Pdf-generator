@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-
-        body{
+        body {
             background: url("https://www.ppt-backgrounds.net/uploads/formal-background.jpg");
             background-size: cover;
         }
+
         .m {
             margin-top: 2%;
         }
@@ -49,15 +49,14 @@
             color: #C0C0C0;
         }
 
-        .btn{
+        .btn {
             font-size: 20px;
             width: 90%;
         }
 
-        .btn:hover{
+        .btn:hover {
             border-radius: 25px;
         }
-
     </style>
 </head>
 
@@ -72,9 +71,17 @@
                 <a href="{{ route('form') }}" type="button" class="btn btn-dark">Form</a>
             </div>
         </div>
-        @if($pend)
+        @if($data['pend'])
         <div class="alert alert-warning" id="success-alert">
-            <strong>Login failed</strong> Your request has not been approved by admin
+            <strong>Login failed!</strong> Your request has not been approved by admin
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+        @if($data['auth'])
+        <div class="alert alert-danger">
+            <strong>Login failed!</strong> Username or Password Wrong!
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -102,5 +109,8 @@
         </center>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>

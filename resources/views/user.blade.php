@@ -78,6 +78,7 @@
             @elseif($dat['user'][0]->role=='executive')
             <li><button id="regstu">Get Registered students</button></li>
             @endif
+            <li><a href="/logout"><button>Logout</button></a></li>
         </div>
         <div class="main">
             <div id='us'>
@@ -137,10 +138,12 @@
     $("#us").hide();
     $(document).ready(function() {
         $("#users").click(function() {
-            $("#us").toggle();
+            $("#us").show();
+            $("#stu").hide();
         });
         $("#regstu").click(function() {
-            $("#stu").toggle();
+            $("#stu").show();
+            $("#us").hide();
         });
     });
 </script>

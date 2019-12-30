@@ -10,7 +10,9 @@ class loginController extends Controller
     public function index()
     {
         $pend = false;
-        return view('login')->with('pend', $pend);
+        $auth = false;
+        $data = array('pend' => $pend, 'auth' => $auth);
+        return view('login')->with('data', $data);
     }
 
     public function auth(Request $request)
@@ -25,13 +27,17 @@ class loginController extends Controller
             ) {
                 if ($user->role == 'pending') {
                     $pend = true;
-                    return view('login')->with('pend', $pend);
+                    $auth = false;
+                    $data = array('pend' => $pend, 'auth' => $auth);
+                    return view('login')->with('data', $data);
                 }
                 $request->session()->put('userID', $user->id);
                 return redirect('user');
             }
         }
         $pend = false;
-        return view('login')->with('pend', $pend);
+        $auth = true;
+        $data = array('pend' => $pend, 'auth' => $auth);
+        return view('login')->with('data', $data);
     }
 }
