@@ -25,3 +25,5 @@ Route::get('/login', ['as'=>'login','uses'=>'loginController@index']);
 Route::get('/register', ['as'=>'register','uses'=>'registerController@index']);
 
 Route::post('/submit',["as"=>'auth', 'uses'=> 'loginController@auth'] );
+
+Route::get('/user',["as"=>'user', 'uses'=> 'userController@index']);

@@ -20,7 +20,7 @@ class loginController extends Controller
             if($username==$request->input('email') && 
                 password_verify($request->input("pass"), $pass) ){
                 $request->session()->put('userID', $user->id);
-                return redirect('form');
+                return redirect('user');
             }
         return redirect('login');
     }
