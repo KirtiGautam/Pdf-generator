@@ -17,18 +17,32 @@
 
         li {
             list-style-type: none;
+            border-bottom: 2px solid dimgray;
+            padding: 2%;
+        }
+
+        h1 {
+            font-size: 5vmin;
         }
 
         .sidebar {
             height: 100%;
-            width: 20%;
+            width: 200px;
             position: fixed;
             z-index: 1;
-            top: 0;
-            left: 0;
             background-color: #111;
             overflow-x: hidden;
-            padding-top: 20px;
+            font-size: 2vmin;
+        }
+
+        .sidebar-nav button {
+            font-size: 2vmin;
+            color: #818181;
+        }
+
+        .main {
+            margin-left: 210px;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -36,79 +50,68 @@
 <body>
     <div class="wrapper">
         <div class="sidebar">
-            <ul class="sidebar-nav">
-                <li>
-                    <h1>Hello {{ $dat["user"][0]->name }}</h1>
-                </li>
-                @if($dat['user'][0]->role=='admin')
-                <li><button id="regstu">Get Registered students</button></li>
-                <li><button id='users'>Get Users</button></li>
-                @elseif($dat['user'][0]->role=='executive')
-                <li><button id="regstu">Get Registered students</button></li>
-                @endif
-
-            </ul>
+            <li>
+                <h1>Hello {{ $dat["user"][0]->name }}</h1>
+            </li>
+            @if($dat['user'][0]->role=='admin')
+            <li><button id="regstu">Get Registered students</button></li>
+            <li><button id='users'>Get Users</button></li>
+            @elseif($dat['user'][0]->role=='executive')
+            <li><button id="regstu">Get Registered students</button></li>
+            @endif
         </div>
+        <div class="main">
+            <div id='us'>
+                <div class="table-responsive">
+                    <h3 align="center">Users:</h3>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($dat['users'] as $data)
+                            <tr class="clickable-row">
+                                <td> {{$data->name}}</td>
+                                <td> <a href="\role?id={{ $data->id }}">{{$data->role}} </a></td>
 
-    </div>
-
-
-
-
-
-    <div class="container">
-        <div id='us'>
-            <div class="table-responsive">
-                <h3 align="center">Users:</h3>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="stu" class="table-responsive">
+                <h3 align="center">Registered Students:</h3>
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
+                            <th>URN</th>
                             <th>Name</th>
-                            <th>Role</th>
+                            <th>Email</th>
+                            <th>Branch</th>
+                            <th>Mobile</th>
+                            <th>Company Name</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($dat['users'] as $data)
-                        <tr class="clickable-row">
-                            <td> {{$data->name}}</td>
-                            <td> <a href="\role?id={{ $data->id }}">{{$data->role}} </a></td>
-
+                        @foreach($dat['students'] as $data)
+                        <tr>
+                            <td> {{$data->urn}} </td>
+                            <td> {{$data->name}} </td>
+                            <td> {{$data->email}} </td>
+                            <td> {{$data->branch}} </td>
+                            <td> {{$data->phone}} </td>
+                            <td> {{$data->company_name}} </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-        <div id="stu" class="table-responsive">
-            <h3 align="center">Registered Students:</h3>
-            <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>URN</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Branch</th>
-                        <th>Mobile</th>
-                        <th>Company Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($dat['students'] as $data)
-                    <tr>
-                        <td> {{$data->urn}} </td>
-                        <td> {{$data->name}} </td>
-                        <td> {{$data->email}} </td>
-                        <td> {{$data->branch}} </td>
-                        <td> {{$data->phone}} </td>
-                        <td> {{$data->company_name}} </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
     </div>
-
 </body>
 <script>
     $("#stu").hide();
