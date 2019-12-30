@@ -10,8 +10,49 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .m {
-            margin: 1%;
+            margin-top: 3%;
         }
+
+        .p {
+            padding: 2%;
+        }
+
+        .form-control {
+            border: none;
+            border-bottom: 5px solid #DCDCDC;
+            font-size: 20px;
+            background: transparent;
+        }
+
+        .form-control:focus {
+            transition: 3s;
+            border: none;
+            border-bottom: 5px solid #708090;
+            font-size: 20px;
+            background: transparent;
+        }
+
+        .form {
+            margin-top: 3%;
+            border: 5px solid black;
+            background-color: black;
+            border-radius: 50px;
+        }
+
+        .material-icons {
+            font-size: 40px;
+            color: #C0C0C0;
+        }
+
+        .btn{
+            font-size: 20px;
+            width: 90%;
+        }
+
+        .btn:hover{
+            border-radius: 25px;
+        }
+
     </style>
 </head>
 
@@ -21,19 +62,31 @@
             <h1 class="text-center">LOGIN TO CONTINUE</h1>
         </div>
         <div class="row">
-            <div class="btn-group col-lg-12 m" role="group">
+            <div class="btn-group col-12 m p" role="group">
                 <a href="{{ route('register') }}" type="button" class="btn btn-primary">Register</a>
                 <a href="{{ route('form') }}" type="button" class="btn btn-dark">Form</a>
             </div>
         </div>
-        <form action="{{  route('auth')  }}" method="POST" class="m" enctype="multipart/form-data">
-            <div class="form-group m p col-12">
-                <i class="material-icons">email</i><input type="email" name="email" id="email" placeholder="Email" class="flow-control">
-                <i class="material-icons">lock</i><input type="password" name="pass" id="pass" placeholder="Password" class="flow-control">
-                {{ csrf_field() }}
-                <input type="submit" value="Submit">
+        <center>
+            <div class="form col-lg-6">
+                <form action="{{  route('auth')  }}" method="POST" class="m" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="input-group m p">
+                            <i class="material-icons">email</i><input type="email" name="email" id="email" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="input-group m p">
+                            <i class="material-icons">lock</i><input type="password" name="pass" id="pass" placeholder="Password" class="form-control">
+                        </div>
+                        <center>
+                            <div class="form-group m p">
+                                {{ csrf_field() }}
+                                <input type="submit" value="Login" class="btn btn-primary m p ">
+                            </div>
+                        </center>
+                    </div>
+                </form>
             </div>
-        </form>
+        </center>
     </div>
 </body>
 
