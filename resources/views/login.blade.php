@@ -67,6 +67,14 @@
                 <a href="{{ route('form') }}" type="button" class="btn btn-dark">Form</a>
             </div>
         </div>
+        @if($pend)
+        <div class="alert alert-warning" id="success-alert">
+            <strong>Login failed</strong> Your request has not been approved by admin
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <center>
             <div class="form col-lg-6">
                 <form action="{{  route('auth')  }}" method="POST" class="m" enctype="multipart/form-data">

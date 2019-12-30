@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Registration Form</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         .p {
             padding: 1%;
@@ -71,9 +71,18 @@
         <div class="jumbotron text-center">
             <h1>Registration Form</h1>
         </div>
+        @if($flag)
+        <div class="alert alert-success" id="success-alert">
+            <strong>Success!</strong> Your request have been passed to the admin for registeration
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         <center>
             <div class="form col-lg-8">
-                <form action="" method="post">
+                <form action="{{ route('regauth') }}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="input-group col-lg-10">
                         <div class="form-group col-lg-12">
                             <input type="text" name="name" id="name" placeholder="Enter First Name" class="form-control" required>
@@ -88,5 +97,7 @@
         </center>
     </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </html>

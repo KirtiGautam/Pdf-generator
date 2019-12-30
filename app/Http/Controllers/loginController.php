@@ -9,20 +9,29 @@ class loginController extends Controller
 {
     public function index()
     {
-        return view('login');
+        $pend = false;
+        return view('login')->with('pend', $pend);
     }
 
-    public function auth(Request $request){
+    public function auth(Request $request)
+    {
         $users = DB::table('users')->select()->get();
-        foreach($users as $user)
-            $username=$user->username;
-            $pass=$user->Pass;
-            if($username==$request->input('email') && 
-                password_verify($request->input("pass"), $pass) ){
+        foreach ($users as $user) {
+            $username = $user->username;
+            $pass = $user->Pass;
+            if (
+                $username == $request->input('email') &&
+                password_verify($request->input("pass"), $pass)
+            ) {
+                if ($user->role == 'pending') {
+                    $pend = true;
+                    return view('login')->with('pend', $pend);
+                }
                 $request->session()->put('userID', $user->id);
                 return redirect('user');
             }
-        return redirect('login');
+        }
+        $pend = false;
+        return view('login')->with('pend', $pend);
     }
-
 }
