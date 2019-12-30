@@ -33,3 +33,5 @@ Route::post('/register/reg-success',["as"=>'regauth', 'uses'=> 'registerControll
 Route::get('/role','userController@changerole');
 
 Route::get('/role/change',["as"=>'changerole','uses'=>'userController@changed']);
+
+Route::get('/logout','userController@logout');
