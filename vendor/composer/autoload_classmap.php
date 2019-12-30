@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\PdfDemoController' => $baseDir . '/app/Http/Controllers/Pdfcontroller.php',
     'App\\Http\\Controllers\\loginController' => $baseDir . '/app/Http/Controllers/loginController.php',
     'App\\Http\\Controllers\\registerController' => $baseDir . '/app/Http/Controllers/registerController.php',
+    'App\\Http\\Controllers\\userController' => $baseDir . '/app/Http/Controllers/userController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\CheckForMaintenanceMode' => $baseDir . '/app/Http/Middleware/CheckForMaintenanceMode.php',
