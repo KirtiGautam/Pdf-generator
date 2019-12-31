@@ -14,7 +14,7 @@
 Route::get('/form', ['as'=>'form','uses'=>'PdfDemoController@index']);
 
 
-Route::post('/Training form', ['as'=>'training-form','uses'=>'PdfDemoController@samplePDF']);
+Route::post('/Training form', ['as'=>'training-form','uses'=>'PdfDemoController@makePDF']);
 
 Route::get('/', function () {
     return view('main');

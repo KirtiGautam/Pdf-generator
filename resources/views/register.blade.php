@@ -98,14 +98,14 @@
         @endif
         <center>
             <div class="form col-lg-8">
-                <form action="{{ route('regauth') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('regauth') }}" method="post" enctype="multipart/form-data" onsubmit="return vald()">
                     @csrf
                     <div class="input-group col-lg-10">
                         <div class="form-group col-lg-12">
-                            <input type="text" name="name" id="name" placeholder="Enter First Name" class="form-control" required>
-                            <input type="email" name="email" id="email" placeholder="Enter E-mail ID" class="form-control" required>
-                            <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control" required>
-                            <input type="password" name="cpass" id="cpass" placeholder="Re-enter Password" class="form-control" required>
+                            <input type="text" name="name" id="name" placeholder="Enter First Name" class="form-control" required><div id='nameerr' style='color:red'></div>
+                            <input type="email" name="email" id="email" placeholder="Enter E-mail ID" class="form-control" required><div id='emailerr' style='color:red'></div>
+                            <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control" required><div id='passerr' style='color:red'></div>
+                            <input type="password" name="cpass" id="cpass" placeholder="Re-enter Password" class="form-control" required><span id='cpasserr' style='color:red'></span>
                             <input type="submit" value="Register" class="btn btn-primary">
                         </div>
                     </div>
@@ -116,5 +116,55 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    function vald() {
+        var name = document.getElementById('name');
+        var email = document.getElementById('email');
+        var password = document.getElementById('pass');
+        var cpassword = document.getElementById('cpass');
+
+        if (name.value == "") {
+            $('#nameerr').show();
+            $('#nameerr').text('Please enter your name');
+            $('#nameerr').hide(5000);
+            name.focus();
+            return false;
+        }
+
+        if (email.value == "") {
+            $('#emailerr').show();
+            $('#emaileerr').text('Please enter your email');
+            $('#emailerr').hide(5000);
+            email.focus();
+            return false;
+        }
+
+        if (password.value == "") {
+            $('#passerr').show();
+            $('#passerr').text("Please enter your password");
+            $('#passerr').hide(5000);
+            password.focus();
+            return false;
+        }
+
+        if(password.value!=cpassword.value){
+            $('#cpasserr').show();
+            $('#cpasserr').text("Passwords don't match");
+            $('#cpasserr').hide(5000);
+            cpassword.focus();
+            return false;
+        }
+
+        if(password.value.length<8){
+            $('#passerr').show();
+            $('#passerr').text("Password must be longer than 8 digits");
+            $('#passerr').hide(5000);
+            password.focus();
+            return false;
+        }
+
+        return true;
+    }
+</script>
 
 </html>

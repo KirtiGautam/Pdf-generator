@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'admin@admin.com',
             'Pass' => password_hash('mehnat', PASSWORD_BCRYPT),
             'name' => 'Dark Knight',
-            'role' => 'admin'
+            'role' => 'd@rkknight'
         ]);
     }
 }

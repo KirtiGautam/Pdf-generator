@@ -19,7 +19,7 @@ class PdfDemoController extends Controller
         return view('form')->with('resp', $resp);
     }
 
-    public function samplePDF(Request $request)
+    public function makePDF(Request $request)
     {
         if ($request->has('modbtn')) {
             DB::update('update registered_students set name = ?, email = ?, branch = ?, phone = ?, company_name = ? where urn = ?', [
@@ -91,9 +91,37 @@ class PdfDemoController extends Controller
         PDF::writeHTML($html, true, false, true, false, '');
 
         PDF::SetFont('Helvetica', 'B', 10);
+        PDF::Write(4.5, "\nWe recommend our graduating student Mr./Ms. ");
 
+        PDF::SetFont('HelveticaB', 'U', 10);
+        PDF::Write(4.6,  $request->input('name') );
 
-        PDF::Write(4.5, "\nWe recommend our graduating student Mr./Ms. " . $request->input('name') . ", Roll no. " . $request->input('roll') . " of B.Tech (Branch) " . $request->input('branch') . ", Email Id " . $request->input('email') . ", Phone no. " . $request->input('tel') . " to undergo Industrial training in your esteemed organization starting from March 2020 .\n");
+        PDF::SetFont('Helvetica', 'B', 10);
+        PDF::Write(4.5,  ", Roll no. ");
+
+        PDF::SetFont('HelveticaB', 'U', 10);
+        PDF::Write(4.6,  $request->input('roll') );
+        
+        PDF::SetFont('Helvetica', 'B', 10);
+        PDF::Write(4.5, " of B.Tech (Branch) ");
+
+        PDF::SetFont('HelveticaB', 'U', 10);
+        PDF::Write(4.6, $request->input('branch'));
+
+        PDF::SetFont('Helvetica', 'B', 10);
+        PDF::Write(4.5, ", Email Id " );
+
+        PDF::SetFont('HelveticaB', 'U', 10);
+        PDF::Write(4.6,  $request->input('email') );
+
+        PDF::SetFont('Helvetica', 'B', 10);
+        PDF::Write(4.5,  ", Phone no. " );
+
+        PDF::SetFont('HelveticaB', 'U', 10);
+        PDF::Write(4.6,  $request->input('tel') );
+
+        PDF::SetFont('Helvetica', 'B', 10);
+        PDF::Write(4.5,  " to undergo Industrial training in your esteemed organization starting from March 2020 .\n");
         PDF::SetFont('Helvetica', '', 8);
         PDF::Write(4, "(* Exact date of joining may be intimated at a later stage. An early and favourable response will be highly appreciated.)");
 

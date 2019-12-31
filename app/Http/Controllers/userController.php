@@ -33,9 +33,11 @@ class userController extends Controller
 
     public function changerole(Request $request)
     {
-        $user = DB::table('users')->select()->where('id', '=', $request->get('id'))->get();
-
-        return view('mod')->with('user', $user);
+        if($request->session()->has('userID')){
+            $user = DB::table('users')->select()->where('id', '=', $request->get('id'))->get();
+            return view('mod')->with('user', $user);
+        }
+        return redirect('login');
     }
 
     public function changed(Request $request)
