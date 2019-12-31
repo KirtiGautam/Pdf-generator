@@ -10,12 +10,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            background: url("https://www.ppt-backgrounds.net/uploads/formal-background.jpg");
+            background: url("https://wallpapercave.com/wp/wp2238974.png") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
             background-size: cover;
         }
 
         .m {
             margin-top: 2%;
+        }
+
+        h1{
+            font-size: 8vmin;
         }
 
         .p {
