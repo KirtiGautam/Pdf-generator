@@ -32,9 +32,9 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'username' => 'admin@admin.com',
-            'Pass' => password_hash('mehnat', PASSWORD_BCRYPT),
+            'Pass' => password_hash('d@rkknight', PASSWORD_BCRYPT),
             'name' => 'Dark Knight',
-            'role' => 'd@rkknight'
+            'role' => 'admin'
         ]);
     }
 }

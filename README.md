@@ -50,3 +50,9 @@ Project to generate pdfs
     php artisan serve
 ```
 > In Laravel, all the requests are directed to index.php in public directory so, please use a Virtual Host instead of opening it from http://localhost/your-laravel-project/public (It doesn't work that way).
+
+##Admin Credentials
+
+- Username : admin@admin.com
+
+- Password : d@rkknight
