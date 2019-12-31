@@ -8,18 +8,23 @@
     <title>Registration Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-    body{
-        background: url("https://www.ppt-backgrounds.net/uploads/3d-slides-ppt.jpg");
-    }
+        body {
+            background: url("https://norlitenursingcenter.com/images/backgroundImage3.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
         .p {
-            padding: 1%;
+            padding: 1vmin;
         }
 
         h1 {
-            font-size: 50px;
+            font-size: 7vmin;
         }
 
-        .row{
+        .row {
             background: unset;
         }
 
@@ -34,20 +39,18 @@
         }
 
         .form-group,
-        .form-control,
-        .btn {
-            font-size: 20px;
-            margin-top: 2%;
-            margin-bottom: 2%;
+        .form-control {
+            font-size: 4vmin;
+            margin-top: 1vmin;
+            margin-bottom: 1vmin;
             border-radius: 10%;
             background: transparent;
-            font-size: 30px;
             color: #C0C0C0;
         }
 
         .btn {
             width: 90%;
-            font-size: 30px;
+            font-size: 4vmin;
         }
 
         .btn:hover {
@@ -56,7 +59,7 @@
         }
 
         .form-control:focus {
-            border-radius: 50px;
+            border-radius: 5vmin;
             transition: 3s;
             background: transparent;
             color: #DCDCDC;
@@ -81,7 +84,7 @@
         </div>
         <div class="row">
             <div class="btn-group col-12 m p" role="group">
-                <a href="{{ route('login') }}" type="button" class="btn btn-primary">Login</a>
+                <a href="{{ route('login') }}" type="button" class="btn btn-secondary">Login</a>
                 <a href="{{ route('form') }}" type="button" class="btn btn-dark">Form</a>
             </div>
         </div>

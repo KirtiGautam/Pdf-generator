@@ -8,7 +8,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body{
-            background: url("https://previews.123rf.com/images/apostrophe/apostrophe1201/apostrophe120100012/11964071-vintage-parchment-paper-background-illustration-with-linen-texture-and-fancy-green-formal-ribbon-str.jpg");
+            background: url("https://previews.123rf.com/images/apostrophe/apostrophe1201/apostrophe120100012/11964071-vintage-parchment-paper-background-illustration-with-linen-texture-and-fancy-green-formal-ribbon-str.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        h1{
+            font-size: 10vmin;
+        }
+        .btn {
+            width: 90%;
+            font-size: 4vmin;
+        }
+
+        .btn:hover {
+            transition: 3s;
+            border-radius: 100px;
         }
     </style>
 </head>

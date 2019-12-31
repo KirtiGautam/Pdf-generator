@@ -8,19 +8,30 @@
     <title>Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
+        body {
+            background: url("https://backgrounddownload.com/wp-content/uploads/2018/09/sky-blue-flower-background-wallpaper-8.jpg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        h1{
+            font-size:8vmin;
+        }
+
         .p {
-            padding: 1%;
+            padding: 1vmin;
         }
 
         .form-group,
-        .form-control,
-        .btn {
-            font-size: 20px;
+        .form-control{
+            font-size: 3vmin;
         }
 
-        .btn{
+        .btn {
             width: 90%;
-            font-size: 30px;
+            font-size: 4vmin;
         }
 
         .btn:hover {
@@ -30,10 +41,6 @@
 
         .form-control:focus {
             border-radius: 25px;
-        }
-
-        .form {
-            background-color: lightgray;
         }
     </style>
 </head>
@@ -122,10 +129,10 @@
 
     //user is "finished typing," check if value exist
     function doneTyping() {
-        if(pausecontent.indexOf(document.getElementById('urn').value)!=-1){
+        if (pausecontent.indexOf(document.getElementById('urn').value) != -1) {
             $("#modbtn").show();
             $("#subtn").hide();
-        }else{
+        } else {
             $("#subtn").show();
             $("#modbtn").hide();
         }
