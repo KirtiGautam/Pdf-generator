@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class loginController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if($request->session()->has('userID'))
+            return redirect('user');
         $pend = false;
         $auth = false;
         $data = array('pend' => $pend, 'auth' => $auth);

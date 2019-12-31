@@ -124,41 +124,31 @@
         var cpassword = document.getElementById('cpass');
 
         if (name.value == "") {
-            $('#nameerr').show();
             $('#nameerr').text('Please enter your name');
-            $('#nameerr').hide(5000);
             name.focus();
             return false;
         }
 
         if (email.value == "") {
-            $('#emailerr').show();
             $('#emaileerr').text('Please enter your email');
-            $('#emailerr').hide(5000);
             email.focus();
             return false;
         }
 
         if (password.value == "") {
-            $('#passerr').show();
             $('#passerr').text("Please enter your password");
-            $('#passerr').hide(5000);
             password.focus();
             return false;
         }
 
         if(password.value!=cpassword.value){
-            $('#cpasserr').show();
             $('#cpasserr').text("Passwords don't match");
-            $('#cpasserr').hide(5000);
             cpassword.focus();
             return false;
         }
 
         if(password.value.length<8){
-            $('#passerr').show();
             $('#passerr').text("Password must be longer than 8 digits");
-            $('#passerr').hide(5000);
             password.focus();
             return false;
         }
