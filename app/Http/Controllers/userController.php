@@ -11,29 +11,28 @@ class userController extends Controller
     {
         if ($request->session()->has('userID')) {
             $user = DB::table('users')->select()->where('id', '=', $request->session()->get('userID'))->get();
-            $students = $this->registered();
-            $users = $this->users();
-            $dat = array('students' => $students, 'user' => $user, 'users' => $users);
-            return  view('user')->with('dat', $dat);
+            $users = DB::table('users')->select()
+            ->where('role', '!=', 'admin')
+            ->get();
+            $dat = array('users' => $users, 'user' => $user);
+            return  view('user/user')->with('dat', $dat);
+        }
+        return redirect('login');
+    }
+    public function registered(Request $request)
+    {
+        if ($request->session()->has('userID')) {
+            $user = DB::table('users')->select()->where('id', '=', $request->session()->get('userID'))->get();
+            $students = DB::table('registered_students')->select()->get();
+            $dat = array('students' => $students, 'user' => $user);
+            return  view('user/regstu')->with('dat', $dat);
         }
         return redirect('login');
     }
 
-    private function users()
-    {
-        return DB::table('users')->select()
-            ->where('role', '!=', 'admin')
-            ->get();
-    }
-    private function registered()
-    {
-        $students = DB::table('registered_students')->select()->get();
-        return $students;
-    }
-
     public function changerole(Request $request)
     {
-        if($request->session()->has('userID')){
+        if ($request->session()->has('userID')) {
             $user = DB::table('users')->select()->where('id', '=', $request->get('id'))->get();
             return view('mod')->with('user', $user);
         }
@@ -53,7 +52,7 @@ class userController extends Controller
         $request->session()->forget('userID');
 
         $request->session()->flush();
-        
+
         return redirect('login');
     }
 }

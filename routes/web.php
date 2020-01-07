@@ -35,3 +35,11 @@ Route::get('/role','userController@changerole');
 Route::get('/role/change',["as"=>'changerole','uses'=>'userController@changed']);
 
 Route::get('/logout','userController@logout');
+
+Route::get('/table', 'studentsController@index');
+
+Route::post('/sub', 'studentsController@save');
+
+Route::post('/get', 'studentsController@search');
+
+Route::get('/regstu', 'userController@registered');
