@@ -28,7 +28,7 @@
 
         h1 {
             font-size: 5vmin;
-            color: #DCDCDC;
+            color: #D8D8D8;
         }
 
         .sidebar {
@@ -45,7 +45,7 @@
         button {
             background: transparent;
             border: none;
-            color: #DCDCDC;
+            color: #BDBDBD;
         }
 
         .main {
@@ -54,17 +54,22 @@
         }
 
         table {
-            background-color: #5b6467;
-            background-image: linear-gradient(315deg, #5b6467 0%, #8b939a 74%);
-            font-size:2vmin;            
+            background: #757F9A;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #D7DDE8, #757F9A);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            font-size: 2vmin;
         }
 
         button:hover {
-            font-size: 4vmin;
+            color: #F5A9BC;
         }
 
         button:focus {
-            color: burlywood;
+            color: #F781BE;
             font-size: 3vmin;
             outline: none;
         }
@@ -79,8 +84,9 @@
             margin-top: 5vmin;
             margin-bottom: 5vmin;
         }
-        #sss{
-            overflow-x:scroll;
+
+        #sss {
+            overflow-x: scroll;
             overflow-y: scroll;
         }
     </style>

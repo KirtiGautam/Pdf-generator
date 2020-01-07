@@ -3,39 +3,44 @@
 @section('content')
 <div class="main">
     <div id='alert'></div>
-    <h2>Students</h2>
-    <button type="submit" id="sub">Save changes</button><button onclick="generate_excel('sss')">Save as excel</button>
-    <Label for="search">Search here</Label>
-    <input type="text" id="search"><br>
-    <Label for="ten">Minimun tenth percentage</Label>
-    <input type="text" id="ten"><br>
-    <Label for="twelve">Minimum Twelvth percentage</Label>
-    <input type="text" id="twelve"><br>
-    <Label for="diplo">Minimum diploma percentage</Label>
-    <input type="text" id="diplo"><br>
-    <Label for="sgpa">Minimum SGPA</Label>
-    <input type="text" id="sgpa"><br>
-    <Label for="perce">Minimum percentage</Label>
-    <input type="text" id="perce"><br>
-    <Label for="back">Active backlogs</Label>
-    <select id="back">
-        <option value="Yes">YES</option>
-        <option value="NO">NO</option>
-    </select><br>
-    <Label for="gender">Gender</Label>
-    <select id="gender">
-        <option value="Both">Both</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-    </select><br>
-    <Label for="gap">Year Gap</Label>
-    <input type="text" id="gap"><br>
+    <h2 class="text-center">Students</h2>
+    <div class="container">
+        <button type="submit" id="sub" class="btn btn-danger">Save changes</button>
+        <button onclick="generate_excel('sss')" class="btn btn-success">Save as excel</button>
+    </div>
+    <div class="container">
+        <Label for="search">Search here</Label>
+        <input type="text" id="search" class=""><br>
+        <Label for="ten">Minimun tenth percentage</Label>
+        <input type="text" id="ten"><br>
+        <Label for="twelve">Minimum Twelvth percentage</Label>
+        <input type="text" id="twelve"><br>
+        <Label for="diplo">Minimum diploma percentage</Label>
+        <input type="text" id="diplo"><br>
+        <Label for="sgpa">Minimum SGPA</Label>
+        <input type="text" id="sgpa"><br>
+        <Label for="perce">Minimum percentage</Label>
+        <input type="text" id="perce"><br>
+        <Label for="back">Active backlogs</Label>
+        <select id="back">
+            <option value="Yes">YES</option>
+            <option value="NO">NO</option>
+        </select><br>
+        <Label for="gender">Gender</Label>
+        <select id="gender">
+            <option value="Both">Both</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+        <Label for="gap">Year Gap</Label>
+        <input type="text" id="gap"><br>
+    </div>
 
     <div class="row">
         <div class="col-md-12">
             <table class="table table-hover table-striped col-md-12 editable" id="sss">
                 <thead>
-                    <tr>
+                    <tr class="thead-dark">
                         <th>URN</th>
                         <th>CRN</th>
                         <th>Name</th>
@@ -69,7 +74,7 @@
 <script>
     var records_per_page = 20;
 
-    var objJson,current_page;
+    var objJson, current_page;
 
     function prevPage() {
         if (current_page > 1) {
@@ -151,7 +156,7 @@
                     //$('tbody').html(result.success);
                     objJson = result;
                     console.log(result);
-                    current_page=1;
+                    current_page = 1;
                     changePage(1);
                 }
             });

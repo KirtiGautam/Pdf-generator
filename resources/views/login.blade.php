@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
-            background: url("https://wallpapercave.com/wp/wp2238974.png") no-repeat center center fixed;
+            background: url("https://searenitymarine.com.au/wp-content/uploads/2018/03/blue-abstract-background.jpg") no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -21,7 +21,7 @@
             margin-top: 2%;
         }
 
-        h1{
+        h1 {
             font-size: 8vmin;
         }
 
@@ -32,7 +32,7 @@
         .form-control {
             border: none;
             border-bottom: 5px solid #DCDCDC;
-            font-size: 20px;
+            font-size: 3vmin;
             background: transparent;
         }
 
@@ -40,7 +40,7 @@
             transition: 3s;
             border: none;
             border-bottom: 5px solid #708090;
-            font-size: 20px;
+            font-size: 3vmin;
             background: transparent;
         }
 
@@ -57,12 +57,28 @@
         }
 
         .btn {
-            font-size: 20px;
+            font-size: 3vmin;
             width: 90%;
         }
 
-        .btn:hover {
-            border-radius: 25px;
+        .btn-primary:hover {
+            background-color: white;
+            color: #0080FF;
+        }
+
+        .btn-primary:active {
+            background-color: #0080FF;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background-color: white;
+            color: #424242;
+        }
+
+        .btn-dark:active {
+            background-color: unset;
+            color: unset;
         }
     </style>
 </head>

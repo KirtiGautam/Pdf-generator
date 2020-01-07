@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
-            background: url("https://backgrounddownload.com/wp-content/uploads/2018/09/sky-blue-flower-background-wallpaper-8.jpg") no-repeat center center fixed;
+            background: url("https://static.vecteezy.com/system/resources/previews/000/544/214/non_2x/blue-and-pink-abstract-vector-background.jpg") no-repeat center center fixed;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
         }
 
-        h1{
-            font-size:8vmin;
+        h1 {
+            font-size: 8vmin;
         }
 
         .p {
@@ -25,18 +25,33 @@
         }
 
         .form-group,
-        .form-control{
+        .form-control {
             font-size: 3vmin;
         }
 
         .btn {
-            width: 90%;
-            font-size: 4vmin;
+            font-size: 3vmin;
+            width: 80%;
         }
 
-        .btn:hover {
-            transition: 3s;
-            border-radius: 100px;
+        .btn-primary:hover {
+            background-color: white;
+            color: #0080FF;
+        }
+
+        .btn-primary:active {
+            background-color: unset;
+            color: unset;
+        }
+
+        .btn-dark:hover {
+            background-color: white;
+            color: #424242;
+        }
+
+        .btn-dark:active {
+            background-color: unset;
+            color: unset;
         }
 
         .form-control:focus {

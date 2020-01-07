@@ -1,8 +1,8 @@
 @extends('user\master')
 
 @section('content')
-<div style="margin-left :  40vmin;">
-    <div class="table-responsive" style="overflow: scroll;">
+<div class="main">
+    <div class="table-responsive">
         <h3 class="text-center">Registered Students</h3>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">

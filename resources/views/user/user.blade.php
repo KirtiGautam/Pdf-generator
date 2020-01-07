@@ -1,7 +1,7 @@
 @extends('user\master')
 
 @section('content')
-<div style="margin-left :  40vmin;">
+<div class="main">
     <div id='us'>
         <div class="table-responsive">
             <h3 class="text-center">Users</h3>
@@ -24,6 +24,6 @@
             </table>
         </div>
     </div>
-    
+
 </div>
 @endsection

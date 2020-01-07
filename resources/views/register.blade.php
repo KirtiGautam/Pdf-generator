@@ -40,7 +40,7 @@
 
         .form-group,
         .form-control {
-            font-size: 4vmin;
+            font-size: 3vmin;
             margin-top: 1vmin;
             margin-bottom: 1vmin;
             border-radius: 10%;
@@ -49,13 +49,38 @@
         }
 
         .btn {
+            font-size: 3vmin;
             width: 90%;
-            font-size: 4vmin;
         }
 
-        .btn:hover {
-            transition: 3s;
-            border-radius: 100px;
+        .btn-primary:hover {
+            background-color: white;
+            color: #0080FF;
+        }
+
+        .btn-primary:active {
+            background-color: unset;
+            color: unset;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: #6E6E6E;
+        }
+
+        .btn-secondary:active {
+            background-color: unset;
+            color: unset;
+        }
+
+        .btn-dark:hover {
+            background-color: white;
+            color: #424242;
+        }
+
+        .btn-dark:active {
+            background-color: unset;
+            color: unset;
         }
 
         .form-control:focus {
@@ -102,9 +127,12 @@
                     @csrf
                     <div class="input-group col-lg-10">
                         <div class="form-group col-lg-12">
-                            <input type="text" name="name" id="name" placeholder="Enter First Name" class="form-control" required><div id='nameerr' style='color:red'></div>
-                            <input type="email" name="email" id="email" placeholder="Enter E-mail ID" class="form-control" required><div id='emailerr' style='color:red'></div>
-                            <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control" required><div id='passerr' style='color:red'></div>
+                            <input type="text" name="name" id="name" placeholder="Enter First Name" class="form-control" required>
+                            <div id='nameerr' style='color:red'></div>
+                            <input type="email" name="email" id="email" placeholder="Enter E-mail ID" class="form-control" required>
+                            <div id='emailerr' style='color:red'></div>
+                            <input type="password" name="pass" id="pass" placeholder="Enter Password" class="form-control" required>
+                            <div id='passerr' style='color:red'></div>
                             <input type="password" name="cpass" id="cpass" placeholder="Re-enter Password" class="form-control" required><span id='cpasserr' style='color:red'></span>
                             <input type="submit" value="Register" class="btn btn-primary">
                         </div>
@@ -141,13 +169,13 @@
             return false;
         }
 
-        if(password.value!=cpassword.value){
+        if (password.value != cpassword.value) {
             $('#cpasserr').text("Passwords don't match");
             cpassword.focus();
             return false;
         }
 
-        if(password.value.length<8){
+        if (password.value.length < 8) {
             $('#passerr').text("Password must be longer than 8 digits");
             password.focus();
             return false;

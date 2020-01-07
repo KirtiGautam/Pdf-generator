@@ -22,7 +22,7 @@
             margin-bottom: 3vmin;
         }
 
-        .form-control{
+        .form-control {
             font-size: 5vmin;
             margin-top: 3vmin;
             margin-bottom: 3vmin;
@@ -30,22 +30,25 @@
             color: #DCDCDC;
         }
 
-        .form-control:focus{
+        .form-control:focus {
             background: #2F4F4F;
             color: #D3D3D3;
         }
 
         .btn {
-            width: 30%;
-            font-size: 4vmin;
-            margin-top: 3vmin;
-            margin-bottom: 3vmin;
+            margin-top: 2vmin;
+            font-size: 3vmin;
+            width: 35%;
         }
 
-        .btn:hover {
-            transition: 3s;
-            border-radius: 100px;
-            color: black;
+        .btn-primary:hover {
+            background-color: white;
+            color: #0080FF;
+        }
+
+        .btn-primary:active {
+            background-color: #0080FF;
+            color: white;
         }
     </style>
 </head>
