@@ -11,6 +11,8 @@ class userController extends Controller
     {
         if ($request->session()->has('userID')) {
             $user = DB::table('users')->select()->where('id', '=', $request->session()->get('userID'))->get();
+            if($user[0]->role!='admin')
+                return redirect('regstu');
             $users = DB::table('users')->select()
             ->where('role', '!=', 'admin')
             ->get();
