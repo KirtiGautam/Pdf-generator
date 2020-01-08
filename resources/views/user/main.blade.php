@@ -2,39 +2,100 @@
 
 @section('content')
 <div class="main">
+    <div class="table-responsive">
+        <h3 class="text-center">Students</h3>
+        <div class="form-group">
+            <div class="input-group">
+                <button type="submit" id="sub" class="btn btn-danger form-control">Save changes</button>
+                <button onclick="generate_excel('sss')" class="btn btn-success form-control">Save as excel</button>
+            </div>
+        </div>
+        <div>
+            <div class="input-group">
+                <div class="col">
+                    <Label for="search" class="form-label">Branch</Label>
+                </div>
+                <div class="col">
+                    <input type="text" id="search" class="form-control">
+
+                </div>
+            </div>
+
+            <div class="input-group">
+                <div class="col">
+                    <Label for="ten">Minimun tenth percentage</Label>
+                </div>
+                <div class="col">
+                    <Label for="twelve">Minimum Twelvth percentage</Label>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <input type="text" id="ten" class="form-control">
+                </div>
+                <div class="col">
+                    <input type="text" id="twelve" class="form-control">
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <Label for="gap">Year Gap</Label>
+                </div>
+                <div class="col">
+                    <Label for="sgpa">Minimum SGPA</Label>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <input type="text" id="gap" class="form-control">
+                </div>
+                <div class="col">
+                    <input type="text" id="sgpa" class="form-control">
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <Label for="perce">Minimum percentage</Label>
+                </div>
+                <div class="col">
+                    <Label for="diplo">Minimum diploma percentage</Label>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <input type="text" id="perce" class="form-control">
+                </div>
+                <div class="col">
+                    <input type="text" id="diplo" class="form-control">
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <Label for="back">Active backlogs</Label>
+                </div>
+                <div class="col">
+                    <Label for="gender">Gender</Label>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="col">
+                    <select id="back" class="form-control">
+                        <option value="Yes">YES</option>
+                        <option value="NO">NO</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select id="gender" class="form-control">
+                        <option value="Both">Both</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id='alert'></div>
-    <h2 class="text-center">Students</h2>
-    <div class="container">
-        <button type="submit" id="sub" class="btn btn-danger">Save changes</button>
-        <button onclick="generate_excel('sss')" class="btn btn-success">Save as excel</button>
-    </div>
-    <div class="container">
-        <Label for="search">Search here</Label>
-        <input type="text" id="search" class=""><br>
-        <Label for="ten">Minimun tenth percentage</Label>
-        <input type="text" id="ten"><br>
-        <Label for="twelve">Minimum Twelvth percentage</Label>
-        <input type="text" id="twelve"><br>
-        <Label for="diplo">Minimum diploma percentage</Label>
-        <input type="text" id="diplo"><br>
-        <Label for="sgpa">Minimum SGPA</Label>
-        <input type="text" id="sgpa"><br>
-        <Label for="perce">Minimum percentage</Label>
-        <input type="text" id="perce"><br>
-        <Label for="back">Active backlogs</Label>
-        <select id="back">
-            <option value="Yes">YES</option>
-            <option value="NO">NO</option>
-        </select><br>
-        <Label for="gender">Gender</Label>
-        <select id="gender">
-            <option value="Both">Both</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select><br>
-        <Label for="gap">Year Gap</Label>
-        <input type="text" id="gap"><br>
-    </div>
 
     <div class="row">
         <div class="col-md-12">
@@ -64,9 +125,14 @@
                 <tbody id="tbo">
                 </tbody>
             </table>
-            <a href="javascript:prevPage()" id="btn_prev">Prev</a>
-            <a href="javascript:nextPage()" id="btn_next">Next</a>
-            page: <span id="page"></span>
+            <nav >
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="javascript:prevPage()" id="btn_prev">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#" id="page"></a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:nextPage()" id="btn_next">Next</a></li>
+                </ul>
+            </nav>
+
         </div>
     </div>
 </div>

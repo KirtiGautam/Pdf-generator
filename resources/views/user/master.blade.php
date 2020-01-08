@@ -13,11 +13,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <style>
         body {
-            background: url("https://static9.depositphotos.com/1275255/1179/i/450/depositphotos_11795063-stock-photo-underwater-art-blue-background.jpg") no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
+            background: #CAC531;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         }
 
         li {
@@ -53,7 +52,7 @@
             margin-right: 2vmin;
         }
 
-        table {
+        .table {
             background: #757F9A;
             /* fallback for old browsers */
             background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
@@ -62,8 +61,21 @@
             /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             position: relative;
             border-collapse: collapse;
-
             font-size: 2vmin;
+        }
+
+        .input-group{
+            font-size:3vmin;
+        }
+        
+        .form-control{
+            margin-top: 1vmin;
+            margin-bottom: 1vmin;
+        }
+
+        .form-label{
+            margin-top: 2vmin;
+            margin-bottom: 2vmin;
         }
 
         th {
@@ -78,7 +90,7 @@
         }
 
         button:focus {
-            color: #F781BE;
+            color: #5858FA;
             font-size: 3vmin;
             outline: none;
         }
@@ -94,9 +106,50 @@
             margin-bottom: 5vmin;
         }
 
+        h3 {
+            font-size: 6vmin;
+        }
+
         #sss {
             overflow-x: scroll;
             overflow-y: scroll;
+        }
+        .btn {
+            font-size: 3vmin;
+            width: 90%;
+        }
+
+        .btn-success:hover {
+            background-color: white;
+            color: #088A29;
+        }
+
+        .btn-success:active {
+            background-color: unset;
+            color: unset;
+        }
+
+        .btn-danger:hover {
+            background-color: white;
+            color: #FE2E2E;
+        }
+
+        .btn-danger:active {
+            background-color: unset;
+            color: unset;
+        }
+
+        .pagination{
+            font-size: 2vmin;
+        }
+
+        .page-link:hover{
+            color: white;
+            background-color: #2E9AFE;
+        }
+        .page-link:active{
+            color: #2E9AFE;
+            background-color: white;
         }
     </style>
 </head>
