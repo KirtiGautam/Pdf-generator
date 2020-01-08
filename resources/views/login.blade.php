@@ -18,7 +18,8 @@
         }
 
         .m {
-            margin-top: 2%;
+            margin-top: 1vmin;
+            margin-bottom: 1vmin;
         }
 
         h1 {
@@ -32,7 +33,7 @@
         .form-control {
             border: none;
             border-bottom: 5px solid #DCDCDC;
-            font-size: 3vmin;
+            font-size: 4vmin;
             background: transparent;
         }
 
@@ -40,24 +41,24 @@
             transition: 3s;
             border: none;
             border-bottom: 5px solid #708090;
-            font-size: 3vmin;
+            font-size: 4vmin;
             background: transparent;
         }
 
         .form {
-            margin-top: 3%;
+            margin-top: 3vmin;
             border: 5px solid black;
             background-color: black;
             border-radius: 50px;
         }
 
         .material-icons {
-            font-size: 40px;
+            font-size: 8vmin;
             color: #C0C0C0;
         }
 
         .btn {
-            font-size: 3vmin;
+            font-size: 4vmin;
             width: 90%;
         }
 

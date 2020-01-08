@@ -40,16 +40,16 @@
 
         .form-group,
         .form-control {
-            font-size: 3vmin;
-            margin-top: 1vmin;
-            margin-bottom: 1vmin;
+            font-size: 4vmin;
+            margin-top: 2vmin;
+            margin-bottom: 2vmin;
             border-radius: 10%;
             background: transparent;
             color: #C0C0C0;
         }
 
         .btn {
-            font-size: 3vmin;
+            font-size: 4vmin;
             width: 90%;
         }
 
