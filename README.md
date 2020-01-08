@@ -51,7 +51,7 @@ Project to generate pdfs
 ```
 > In Laravel, all the requests are directed to index.php in public directory so, please use a Virtual Host instead of opening it from http://localhost/your-laravel-project/public (It doesn't work that way).
 
-##Admin Credentials
+## Admin Credentials
 
 - Username : admin@admin.com
 
